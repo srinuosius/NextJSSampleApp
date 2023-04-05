@@ -2,10 +2,16 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const router=useRouter()
+  const placeOrder=()=>{
+    router.push("/products")
+  }
   return (
     <>
       <Head>
@@ -14,33 +20,27 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
-
-       
-      </main>
+      <div>
+        <h1>Hello Next JS</h1>
+      </div>
+      <h3>Navigation</h3>
+      <div>
+        <Link href="/blog">
+        <h5>Blog</h5>
+        </Link>
+        <Link href="/products">
+        <h5>Producs</h5>
+        </Link>
+        <Link href="/docs">
+        <h5>Docs</h5>
+        </Link>
+        <Link href="/users">
+        <h5>Users</h5>
+        </Link>
+      </div>
+      <div>
+        <button onClick={placeOrder}>Place Order</button>
+      </div>
     </>
   )
 }
