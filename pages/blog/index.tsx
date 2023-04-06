@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const Blogs = () => {
     return (
         <div>
-            <Link href="/"><h5>Home</h5></Link>
+            <Navbar />
             <h2>Blogs Page </h2>
         </div>
     )

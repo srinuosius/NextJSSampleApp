@@ -1,10 +1,13 @@
 import React, { use } from 'react'
 import styles from '../../styles/Users.module.css'
 import Link from 'next/link'
+import Navbar from '../components/Navbar'
 const Users = ({ users }: any) => {
     console.log({ users })
     return (
-        <div><h1>Users List Data</h1>
+        <div>
+            <Navbar />
+            <h3>Users List Data</h3>
             <div className={styles.usersdiv}>
                 {
                     users && users.map((v: any, i: any) => {

@@ -1,32 +1,18 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import React from 'react'
-import styles from '../../../styles/Users.module.css'
+import Navbar from '@/pages/components/Navbar'
 
 const UserDetails = ({ userinfo }: any) => {
     console.log({ userinfo })
     return (
         <div>
-            <h1>UserDetails</h1>
-            {/* {
-                    userinfo && userinfo.map((v: any, i: any) => {
-                        return (
-                            <div key={i} className={styles.userdiv}>
-                                <p>Name : {v.name}</p>
-                                <p>Email: {v.email}</p>
-                                <p>Phone: {v.phone}</p>
-                                <Link href={`/users/${v.id}`}>Know more</Link>
-                            </div>
-                        )
-                    })
-                } */
-            }
+            <Navbar />
 
+            <h3>User Information</h3>
             <div>
                 <p>Name : {userinfo.name}</p>
                 <p>Email: {userinfo.email}</p>
                 <p>Phone: {userinfo.phone}</p>
                 <p>Username: {userinfo.username}</p>
+                <p>Website: {userinfo.website}</p>
 
             </div>
         </div>
