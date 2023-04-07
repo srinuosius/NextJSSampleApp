@@ -10,3 +10,9 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+
+.activenavitem{
+    background-color: aliceblue;
+    padding: 1px 5px;
+    border-radius: 5px;
+}
