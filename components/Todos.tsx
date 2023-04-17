@@ -68,7 +68,7 @@ const Todos = () => {
 
     return (
         <div>
-            <h3 style={{textAlign:"center"}}>Firebas  CRUD</h3>
+            <h3 style={{textAlign:"center"}}>Firebase  CRUD</h3>
 
             <div className={style.todoTable}>
 

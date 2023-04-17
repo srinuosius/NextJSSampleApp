@@ -39,6 +39,9 @@ const Navbar = () => {
                 <Link className={styles.navbarItem} href="/crud">
                     <h4 className={(pathname == "crud") ? styles.activenavitem : ""}>Firebase CRUD</h4>
                 </Link>
+                <Link className={styles.navbarItem} href="/tasks">
+                    <h4 className={(pathname == "tasks") ? styles.activenavitem : ""}>Tasks</h4>
+                </Link>
             </div>
 
         </>
