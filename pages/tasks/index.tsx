@@ -49,6 +49,52 @@ const index = () => {
       rank: "11",
     },
   };
+  const jsonObj2: any = {
+    "Best Mattress For Stomach Sleepers Rank": {},
+    "Best Mattress In Box Rank": {
+      is_tied: true,
+      rank: "9",
+    },
+    "Best Lower Priced Mattresses Rank": {
+      is_tied: true,
+      rank: "5",
+    },
+    "Best Spring Mattress Rank": {},
+    "Overall Rank": {
+      is_tied: true,
+      rank: "13",
+    },
+    "Best Foam Mattress Rank": {},
+    "Best Organic Mattress Rank": {},
+    "Best Memory Foam Mattress Rank": {},
+    "Best Firm Mattress Rank": {},
+    "Best Cheap Mattress Rank": {},
+    "Best Latex Mattress Rank": {},
+    "Best Mattress For Side Sleepers Rank": {
+      is_tied: true,
+      rank: "7",
+    },
+    "Best Mattress For Back Pain Rank": {
+      is_tied: false,
+      rank: "6",
+    },
+    "Best Cooling Mattress Rank": {
+      is_tied: false,
+      rank: "5",
+    },
+    "Best Hybrid Mattress Rank": {
+      is_tied: true,
+      rank: "8",
+    },
+    "Best Mattress For Heavy People Rank": {
+      is_tied: true,
+      rank: "3",
+    },
+    "Best Online Mattress Rank": {
+      is_tied: true,
+      rank: "11",
+    },
+  };
 
   const arry =
     jsonObj &&
@@ -87,6 +133,27 @@ const index = () => {
       })
       .filter((v: any, i: any) => v.rank > 0);
 
+  // filtered the empty object and stored the keys
+
+  const ranking_keys: any = Object.keys(jsonObj2).filter(
+    (k) => Object.keys(jsonObj2[k]).length
+  );
+
+  // Sorted the keys array
+  ranking_keys.sort((a: any, b: any) => jsonObj2[a].rank - jsonObj2[b].rank);
+
+  // Moving the the overall best on top
+  ranking_keys.unshift(ranking_keys.pop());
+
+  const sorted_rankings = ranking_keys.reduce((acc: any, key: any) => {
+    const newKey = key.replace("Rank", "").replace("Overall", "Best Overall");
+    acc[newKey] = jsonObj2[key];
+
+    return acc;
+  }, {});
+
+  console.log("sorted_rankings", sorted_rankings);
+
   return (
     <div>
       <Navbar />
@@ -106,6 +173,12 @@ const index = () => {
           <Ranking Rankings={descOrder} />
         </div>
       </div>
+      {Object.keys(sorted_rankings).map((key) => (
+        <p>
+          {jsonObj2[key]?.rank}
+          {key}
+        </p>
+      ))}
     </div>
   );
 };
