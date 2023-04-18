@@ -53,8 +53,8 @@ const index = () => {
   const arry =
     jsonObj &&
     Object.entries(jsonObj).map(([key, value]: any, i) => {
-      console.log({ key });
-      console.log({ value });
+      // console.log({ key });
+      // console.log({ value });
       return {
         rank: value.rank ? parseFloat(value.rank) : 0,
         string: `${value && value.rank ? "#" + value.rank : ""} in ${key
@@ -71,6 +71,12 @@ const index = () => {
         return parseFloat(a.rank) - parseFloat(b.rank);
       })
       .filter((v: any, i: any) => v.rank > 0);
+
+  let abcd: any = [];
+  ascOrder &&
+    ascOrder.map((v, i) => {
+      v.rank == 13 ? abcd.unshift(v) : abcd.push(v);
+    });
 
   const descOrder =
     arry &&
@@ -90,7 +96,7 @@ const index = () => {
           <h3 style={{ textAlign: "center", textDecoration: "underline" }}>
             Asending Order
           </h3>
-          <Ranking Rankings={ascOrder} />
+          <Ranking Rankings={abcd} />
         </div>
 
         <div>
