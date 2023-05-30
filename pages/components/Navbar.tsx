@@ -60,6 +60,16 @@ const Navbar = () => {
             Tasks
           </h4>
         </Link>
+        <Link className={styles.navbarItem} href="/css">
+          <h4 className={pathname == "css" ? styles.activenavitem : ""}>
+            CSS Tasks
+          </h4>
+        </Link>
+        <Link className={styles.navbarItem} href="/dragdrop">
+          <h4 className={pathname == "dragdrop" ? styles.activenavitem : ""}>
+            Drag Drop
+          </h4>
+        </Link>
       </div>
     </>
   );

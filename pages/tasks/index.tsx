@@ -146,8 +146,8 @@ const index = () => {
   ranking_keys.unshift(ranking_keys.pop());
 
   const sorted_rankings = ranking_keys.reduce((acc: any, key: any) => {
-    const newKey = key.replace("Rank", "").replace("Overall", "Best Overall");
-    acc[newKey] = jsonObj2[key];
+    // const newKey = key.replace("Rank", "").replace("Overall", "Best Overall");
+    acc[key] = jsonObj2[key];
 
     return acc;
   }, {});
@@ -157,7 +157,6 @@ const index = () => {
   return (
     <div>
       <Navbar />
-
       <div style={{ display: "flex", justifyContent: "space-around" }}>
         <div>
           <h3 style={{ textAlign: "center", textDecoration: "underline" }}>
@@ -173,12 +172,14 @@ const index = () => {
           <Ranking Rankings={descOrder} />
         </div>
       </div>
-      {Object.keys(sorted_rankings).map((key) => (
-        <p>
-          {jsonObj2[key]?.rank}
-          {key}
-        </p>
-      ))}
+      {Object.keys(sorted_rankings).map((key) => {
+        return (
+          <p style={{ textAlign: "center" }} key={key}>
+            {jsonObj2[key]?.rank}{" "}
+            {key.replace("Rank", "").replace("Overall", "Best Overall")}
+          </p>
+        );
+      })}
     </div>
   );
 };
