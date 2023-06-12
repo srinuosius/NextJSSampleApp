@@ -70,6 +70,11 @@ const Navbar = () => {
             Drag Drop
           </h4>
         </Link>
+        <Link className={styles.navbarItem} href="/timer">
+          <h4 className={pathname == "timer" ? styles.activenavitem : ""}>
+           Timer
+          </h4>
+        </Link>
       </div>
     </>
   );
