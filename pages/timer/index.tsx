@@ -29,23 +29,28 @@ const index = () => {
 
 
   const [count, setCount] = useState(0);
-  let id: any = useRef();
+  // let id: any = useRef();
+  const [timerInt, setTimerInt]:any=useState()
 
   useEffect(() => {
-    return () => clearInterval(id.current);
+    return () => clearInterval(timerInt);
   }, []);
 
   const timerSTart = () => {
-    id.current = setInterval(() => {
-      setCount((prev) => prev + 1);
-    }, 1000);
+    // id.current = setInterval(() => {
+    //   setCount((prev) => prev + 1);
+    // }, 1000);
+
+    setTimerInt(setInterval(() => {
+        setCount((prev) => prev + 1);
+      }, 1000))
   };
 
   const onPause = () => {
-    clearInterval(id.current);
+    clearInterval(timerInt);
   };
   const onReset = () => {
-    clearInterval(id.current);
+    clearInterval(timerInt);
     setCount(0);
   }; 
 
